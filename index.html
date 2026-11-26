@@ -56,7 +56,7 @@
     h2 { text-align: center; color: var(--plum); margin-bottom: 0.4rem; font-size: 2rem; }
     .subtitle { text-align: center; color: #66585e; margin-bottom: 2.2rem; font-size: 0.96rem; }
 
-    /* Service Cards with Images */
+    /* Service Cards with Local Images */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.8rem; }
     .card {
       background: #fff;
@@ -67,11 +67,21 @@
       display: flex;
       flex-direction: column;
     }
-    .card img {
+    .img-wrapper {
       width: 100%;
-      height: 195px;
-      object-fit: cover;
+      height: 200px;
+      background: linear-gradient(135deg, #f3dce3, #e6c3ce);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
       border-bottom: 2px solid var(--blush);
+    }
+    .img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .card-body { padding: 1.4rem; flex-grow: 1; display: flex; flex-direction: column; }
     .card h3 { color: var(--plum); margin-bottom: 1rem; font-size: 1.25rem; border-bottom: 1px solid #f0e1e6; padding-bottom: 0.5rem; }
@@ -129,7 +139,9 @@
     <div class="grid">
       <!-- Braiding & Extensions -->
       <div class="card">
-        <img src="https://unsplash.com" alt="Braiding and Hair Extensions" />
+        <div class="img-wrapper">
+          <img src="braids.jpg" alt="Braiding and Hair Extensions" />
+        </div>
         <div class="card-body">
           <h3>Braiding & Extensions</h3>
           <div class="menu-item"><span class="service">Neat Cornrows / Stitch Lines</span><span class="cost">From KES 800</span></div>
@@ -143,7 +155,9 @@
 
       <!-- Natural Hair & Treatments -->
       <div class="card">
-        <img src="https://unsplash.com" alt="Natural Hair Care and Silk Press" />
+        <div class="img-wrapper">
+          <img src="natural-hair.jpg" alt="Natural Hair Care and Silk Press" />
+        </div>
         <div class="card-body">
           <h3>Natural Hair & Treatments</h3>
           <div class="menu-item"><span class="service">Wash, Deep Steam & Blow-dry</span><span class="cost">KES 800</span></div>
@@ -157,7 +171,9 @@
 
       <!-- Nail Care & Spa -->
       <div class="card">
-        <img src="https://unsplash.com" alt="Manicure, Gel Polish and Nail Art" />
+        <div class="img-wrapper">
+          <img src="nails.jpg" alt="Manicure, Gel Polish and Nail Art" />
+        </div>
         <div class="card-body">
           <h3>Nail Care & Spa</h3>
           <div class="menu-item"><span class="service">Classic Manicure (Plain)</span><span class="cost">KES 500</span></div>
@@ -171,7 +187,9 @@
 
       <!-- Facials, Lashes & Glam -->
       <div class="card">
-        <img src="https://unsplash.com" alt="Facials, Lashes and Bridal Makeup" />
+        <div class="img-wrapper">
+          <img src="facial.jpg" alt="Facials, Lashes and Bridal Makeup" />
+        </div>
         <div class="card-body">
           <h3>Facials, Lashes & Glam</h3>
           <div class="menu-item"><span class="service">Eyebrow Threading & Shaping</span><span class="cost">KES 300</span></div>
@@ -193,5 +211,5 @@
       <div class="review-grid">
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p class="review-text">"My knotless braids came out so neat and painless! The staff is welcoming and the salon is spotless. Definitely my go-to spot in Eldoret."</p>
+
 
