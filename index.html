@@ -1,1 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KIM's Salon & Beauty | Eldoret</title>
+  <style>
+    :root {
+      --plum: #4a1c2f;
+      --rose: #8c3b58;
+      --gold: #c59b27;
+      --cream: #fffaf8;
+      --blush: #f8ecee;
+      --text: #2e2428;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: var(--cream); color: var(--text); line-height: 1.6; }
+
+    /* Hero Header */
+    header {
+      background: linear-gradient(135deg, var(--plum), var(--rose));
+      color: #fff;
+      text-align: center;
+      padding: 4rem 1.5rem 3.5rem;
+      border-bottom: 4px solid var(--gold);
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(197, 155, 39, 0.2);
+      border: 1px solid var(--gold);
+      color: #f7e4a6;
+      padding: 0.35rem 1.1rem;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    header h1 { font-size: 2.6rem; letter-spacing: 1px; margin-bottom: 0.6rem; }
+    header p { font-size: 1.1rem; opacity: 0.92; max-width: 620px; margin: 0 auto 1.8rem; }
+    .btn-whatsapp {
+      display: inline-block;
+      background: #25D366;
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      transition: 0.3s;
+    }
+    .btn-whatsapp:hover { background: #1ebe5d; transform: translateY(-2px); }
+
+    /* Sections */
+    section { max-width: 1020px; margin: 3rem auto; padding: 0 1.5rem; }
+    h2 { text-align: center; color: var(--plum); margin-bottom: 0.4rem; font-size: 2rem; }
+    .subtitle { text-align: center; color: #66585e; margin-bottom: 2.2rem; font-size: 0.96rem; }
+
+    /* Service Cards with Images */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.8rem; }
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(74, 28, 47, 0.08);
+      border-top: 4px solid var(--gold);
+      display: flex;
+      flex-direction: column;
+    }
+    .card img {
+      width: 100%;
+      height: 195px;
+      object-fit: cover;
+      border-bottom: 2px solid var(--blush);
+    }
+    .card-body { padding: 1.4rem; flex-grow: 1; display: flex; flex-direction: column; }
+    .card h3 { color: var(--plum); margin-bottom: 1rem; font-size: 1.25rem; border-bottom: 1px solid #f0e1e6; padding-bottom: 0.5rem; }
+    .menu-item { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.7rem; font-size: 0.94rem; }
+    .menu-item span.service { color: var(--text); font-weight: 500; padding-right: 0.5rem; }
+    .menu-item span.cost { color: var(--rose); font-weight: 700; white-space: nowrap; }
+    .note { font-size: 0.8rem; color: #7a6b71; margin-top: auto; padding-top: 0.8rem; font-style: italic; }
+
+    /* Client Reviews */
+    .reviews-section {
+      background: var(--blush);
+      padding: 3rem 1.5rem;
+      border-radius: 16px;
+      border: 1px solid rgba(197, 155, 39, 0.4);
+    }
+    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.4rem; margin-top: 1.5rem; }
+    .review-card { background: #fff; padding: 1.4rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); }
+    .stars { color: var(--gold); font-size: 1.1rem; margin-bottom: 0.5rem; letter-spacing: 2px; }
+    .review-text { font-size: 0.94rem; color: #44383d; margin-bottom: 0.8rem; font-style: italic; }
+    .reviewer { font-weight: bold; color: var(--plum); font-size: 0.88rem; }
+
+    /* Location & Hours */
+    .info-box {
+      background: linear-gradient(135deg, var(--plum), #63253e);
+      color: #fff;
+      padding: 2.8rem 1.5rem;
+      border-radius: 16px;
+      text-align: center;
+      border: 2px solid var(--gold);
+    }
+    .info-box h2 { color: #fff; margin-bottom: 1rem; }
+    .info-box p { margin-bottom: 0.7rem; opacity: 0.95; font-size: 1rem; }
+    .gold-highlight { color: #f7e4a6; font-weight: bold; }
+    .info-box .btn-whatsapp { margin-top: 1.2rem; }
+
+    footer { text-align: center; padding: 1.5rem; background: #2c101c; color: #e6d5dc; margin-top: 3rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">Eldoret's Premier Beauty Destination</div>
+    <h1>KIM's Salon & Beauty</h1>
+    <p>Luxury Hair Artistry, Nail Studio, Skincare & Bridal Glam. Transparent Kenyan pricing, hygienic care, and timeless results.</p>
+    <!-- Replace 254700000000 with your actual WhatsApp number (e.g., 254712345678) -->
+    <a class="btn-whatsapp" href="https://wa.me." target="_blank" rel="noopener">
+      Book Appointment on WhatsApp
+    </a>
+  </header>
+
+  <section>
+    <h2>Our Services & Price List (KES)</h2>
+    <p class="subtitle">Competitive, transparent rates tailored for quality care. Final braid and colour quotes depend on hair length and volume.</p>
+
+    <div class="grid">
+      <!-- Braiding & Extensions -->
+      <div class="card">
+        <img src="https://unsplash.com" alt="Braiding and Hair Extensions" />
+        <div class="card-body">
+          <h3>Braiding & Extensions</h3>
+          <div class="menu-item"><span class="service">Neat Cornrows / Stitch Lines</span><span class="cost">From KES 800</span></div>
+          <div class="menu-item"><span class="service">Knotless / Box Braids</span><span class="cost">From KES 1,800</span></div>
+          <div class="menu-item"><span class="service">Goddess / Bohemian Braids</span><span class="cost">From KES 2,500</span></div>
+          <div class="menu-item"><span class="service">Weaving (Track & Sew)</span><span class="cost">From KES 2,000</span></div>
+          <div class="menu-item"><span class="service">Frontal / Closure Wig Install</span><span class="cost">KES 2,500 – 3,500</span></div>
+          <p class="note">*Includes wash & blow-dry before braiding.</p>
+        </div>
+      </div>
+
+      <!-- Natural Hair & Treatments -->
+      <div class="card">
+        <img src="https://unsplash.com" alt="Natural Hair Care and Silk Press" />
+        <div class="card-body">
+          <h3>Natural Hair & Treatments</h3>
+          <div class="menu-item"><span class="service">Wash, Deep Steam & Blow-dry</span><span class="cost">KES 800</span></div>
+          <div class="menu-item"><span class="service">Silk Press & Flat Iron</span><span class="cost">KES 1,500</span></div>
+          <div class="menu-item"><span class="service">Dreadlocks Retouch (Wax/Crochet)</span><span class="cost">KES 900 – 1,200</span></div>
+          <div class="menu-item"><span class="service">Texlax / Relaxer Retouch</span><span class="cost">From KES 2,000</span></div>
+          <div class="menu-item"><span class="service">Full Hair Dye / Colouring</span><span class="cost">From KES 3,500</span></div>
+          <p class="note">*Protein & hydration steam masks available.</p>
+        </div>
+      </div>
+
+      <!-- Nail Care & Spa -->
+      <div class="card">
+        <img src="https://unsplash.com" alt="Manicure, Gel Polish and Nail Art" />
+        <div class="card-body">
+          <h3>Nail Care & Spa</h3>
+          <div class="menu-item"><span class="service">Classic Manicure (Plain)</span><span class="cost">KES 500</span></div>
+          <div class="menu-item"><span class="service">Gel Polish Application</span><span class="cost">KES 800</span></div>
+          <div class="menu-item"><span class="service">Builder Gel / Overlay</span><span class="cost">KES 1,500</span></div>
+          <div class="menu-item"><span class="service">Acrylics / Tips + Gel</span><span class="cost">From KES 2,000</span></div>
+          <div class="menu-item"><span class="service">Luxury Spa Pedicure + Gel</span><span class="cost">KES 1,500</span></div>
+          <p class="note">*Soak-off & custom nail art charged separately.</p>
+        </div>
+      </div>
+
+      <!-- Facials, Lashes & Glam -->
+      <div class="card">
+        <img src="https://unsplash.com" alt="Facials, Lashes and Bridal Makeup" />
+        <div class="card-body">
+          <h3>Facials, Lashes & Glam</h3>
+          <div class="menu-item"><span class="service">Eyebrow Threading & Shaping</span><span class="cost">KES 300</span></div>
+          <div class="menu-item"><span class="service">Classic / Hybrid Lash Extensions</span><span class="cost">KES 2,000 – 3,000</span></div>
+          <div class="menu-item"><span class="service">Deep Cleansing Glow Facial</span><span class="cost">KES 1,800</span></div>
+          <div class="menu-item"><span class="service">Soft Glam / Event Makeup</span><span class="cost">KES 2,500</span></div>
+          <div class="menu-item"><span class="service">Bridal Beauty Package</span><span class="cost">From KES 8,000</span></div>
+          <p class="note">*Bridal trials and on-location bookings available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Reviews Section -->
+  <section>
+    <div class="reviews-section">
+      <h2>What Our Clients Say</h2>
+      <p class="subtitle">Trusted by women across Eldoret for neat styling, warm hospitality, and lasting results.</p>
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"My knotless braids came out so neat and painless! The staff is welcoming and the salon is spotless. Definitely my go-to spot in Eldoret."</p>
 
