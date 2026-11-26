@@ -1,1 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KIM's Beauty Salon & SPA | Eldoret</title>
+  <style>
+    :root {
+      --plum: #3b1325;
+      --plum-mid: #5c1f3b;
+      --rose: #943d5c;
+      --gold: #c99e2c;
+      --gold-light: #f6e3a8;
+      --cream: #fffaf8;
+      --blush: #f7ebef;
+      --white: #ffffff;
+      --text: #2a2024;
+      --muted: #695a60;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* Sticky Modern Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(59, 19, 37, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--gold);
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .brand {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--gold-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #f3e6eb;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    /* Hero Section */
+    header {
+      background: radial-gradient(circle at top right, var(--rose), var(--plum));
+      color: var(--white);
+      text-align: center;
+      padding: 5.5rem 1.5rem 5rem;
+      border-bottom: 4px solid var(--gold);
+      position: relative;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(201, 158, 44, 0.18);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      padding: 0.35rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+    }
+
+    header h1 {
+      font-size: clamp(2.1rem, 5vw, 3.2rem);
+      letter-spacing: 0.5px;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.92;
+      max-width: 640px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-whatsapp {
+      display: inline-block;
+      background: #25D366;
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s, background 0.25s;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebe5d;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1.5px solid var(--gold-light);
+      color: var(--gold-light);
+      padding: 0.85rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--plum);
+    }
+
+    /* Section Layout & Scroll Animation */
+    section {
+      max-width: 1080px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+      scroll-margin-top: 80px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header h2 {
+      color: var(--plum);
+      font-size: 2.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .divider {
+      width: 65px;
+      height: 3px;
+      background: var(--gold);
+      margin: 0.6rem auto 1rem;
+      border-radius: 2px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Service Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(59, 19, 37, 0.07);
+      border-top: 4px solid var(--gold);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(59, 19, 37, 0.12);
+    }
+
+    .media-box {
+      width: 100%;
+      height: 190px;
+      background: linear-gradient(135deg, #f3dce3, #e8c7d2);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: var(--plum);
+      border-bottom: 2px solid var(--blush);
+      overflow: hidden;
+    }
+
+    .media-box img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .media-placeholder {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .media-placeholder svg {
+      width: 44px;
+      height: 44px;
+      stroke: var(--rose);
+      margin-bottom: 0.4rem;
+    }
+
+    .media-placeholder span {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--plum-mid);
+    }
+
+    .card-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card h3 {
+      color: var(--plum);
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      border-bottom: 1px solid #f0e1e6;
+      padding-bottom: 0.5rem;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.75rem;
+      font-size: 0.94rem;
+    }
+
+    .menu-item span.service {
+      color: var(--text);
+      font-weight: 500;
+      padding-right: 0.6rem;
+    }
+
+    .menu-item span.cost {
+      color: var(--rose);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: auto;
+      padding-top: 0.8rem;
+      font-style: italic;
+    }
+
+    /* Spa Highlight Banner */
+    .spa-banner {
+      background: var(--blush);
+      border: 1.5px solid rgba(201, 158, 44, 0.45);
+      border-radius: 18px;
+      padding: 2.5rem 1.8rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .spa-banner h3 {
+      color: var(--plum);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .spa-pill {
+      background: var(--white);
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--rose);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .spa-pill strong {
+      color: var(--plum);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .spa-pill span {
+      color: var(--rose);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    /* Reviews */
+    .reviews-wrap {
+      background: var(--blush);
+      padding: 3rem 1.5rem;
+      border-radius: 18px;
+      border: 1px solid rgba(201, 158, 44, 0.35);
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .review-card {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+
+    .review-text {
+      font-size: 0.94rem;
+      color: #44383d;
+      margin-bottom: 0.8rem;
+      font-style: italic;
+    }
+
+    .reviewer {
+      font-weight: 700;
+      color: var(--plum);
+      font-size: 0.88rem;
+    }
+
+    /* Visit & Contact */
+    .info-box {
+      background: linear-gradient(135deg, var(--plum), var(--plum-mid));
+      color: var(--white);
+      padding: 3rem 1.5rem;
+      border-radius: 18px;
+      text-align: center;
+      border: 2px solid var(--gold);
+    }
+
+    .info-box h2 {
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+
+    .info-box p {
+      margin-bottom: 0.65rem;
+      opacity: 0.95;
+      font-size: 1rem;
+    }
+
+    .gold-highlight {
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
+    .info-box .btn-whatsapp {
+      margin-top: 1.3rem;
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-wa {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: var(--white);
+      padding: 0.8rem 1.3rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      z-index: 999;
+      transition: transform 0.25s;
+    }
+
+    .floating-wa:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.6rem;
+      background: #240b16;
+      color: #e6d5dc;
+      margin-top: 3.5rem;
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navigation -->
+  <nav>
+    <a href="#top" class="brand">KIM's <span>Beauty Salon & SPA</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services & Prices</a></li>
+      <li><a href="#spa">Spa Packages</a></li>
+      <li><a href="#reviews">Reviews</a></li>
 
